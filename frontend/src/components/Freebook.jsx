@@ -5,27 +5,26 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 //backend se data lene ke liye axios ka use karte hai
-import axios from "axios"
+import axios from "axios";
 import Cards from "./Cards";
 
 const Freebook = () => {
   //backend se data lena -> start
-  const [book,setBook] = useState([])
-  useEffect(()=>{
-    const getBook=async()=>{
-      try{
+  const [book, setBook] = useState([]);
+  useEffect(() => {
+    const getBook = async () => {
+      try {
         const res = await axios.get("http://localhost:4001/book");
-        
-        const data = res.data.filter((data) => data.category === "Free")
+
+        const data = res.data.filter((data) => data.category === "Free");
         console.log(data);
         setBook(data);
-        
-      } catch(error){
+      } catch (error) {
         console.log(error);
       }
-    }
+    };
     getBook();
-  },[])
+  }, []);
   //backend se data lena -> end
 
   var settings = {
@@ -77,8 +76,12 @@ const Freebook = () => {
 
         <div>
           <Slider {...settings}>
-            {book.map((item)=>(
-              <Cards item={item} key={item.id}/>
+            {book.map((item) => (
+              <div className="p-8">
+                <div className="max-w-xm mx-auto">
+                  <Cards item={item} key={item.id} />
+                </div>
+              </div>
             ))}
           </Slider>
         </div>
@@ -88,3 +91,5 @@ const Freebook = () => {
 };
 
 export default Freebook;
+
+// Pankaj kumar
