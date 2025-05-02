@@ -6,10 +6,11 @@ function Logout() {
   const [authUser, setAuthUser] = useAuth();
   const handleLogout = () => {
     try {
-      setAuthUser({
-        ...authUser,
-        user: null,
+      setAuthUser({ //state ko change karenge
+        ...authUser,// old authUser ye to rahega purana  state ka value rahega hi
+        user: null, //contex per localstorage jo user aa raha hai wahi user
       });
+      // local storage se user ko remove kar dena hai
       localStorage.removeItem("User");
       toast.success("Logout successfully");
 

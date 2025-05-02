@@ -6,6 +6,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 function Signup() {
+  //use location ka use navigation ke liye kar rahe hai
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -15,25 +16,27 @@ function Signup() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  
+  // frontend se backend ko jodna -> start
   const onSubmit = async (data) => {
     const userInfo = {
       fullname: data.fullname,
       email: data.email,
       password: data.password,
     };
-    await axios
-      .post("http://localhost:4001/user/signup", userInfo)
+    await axios.post("http://localhost:4001/user/signup", userInfo)
       .then((res) => {
         console.log(res.data);
         if (res.data) {
           toast.success('Signup Successfully');
+          //signup ke bad home page pr jao
           navigate(from,{replace:true});
           setTimeout(() => {
             window.location.reload();
           }, 2000);
           
         }
+        //user ko browser ke local storage mai store karao taki course course mai use kar sake
         localStorage.setItem("User", JSON.stringify(res.data.user));
       })
       .catch((err) => {
@@ -43,6 +46,7 @@ function Signup() {
           setTimeout(() => {}, 2000);
         }
       });
+       // frontend se backend ko jodna -> end
   };
   return (
     <>

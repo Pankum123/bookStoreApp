@@ -10,6 +10,7 @@ function Login() {
     formState: { errors },
   } = useForm();
 
+  //frontend se backend ko jodna -> start
   const onSubmit = async (data) => {
     const userInfo = {
       email: data.email,
@@ -21,6 +22,7 @@ function Login() {
         console.log(res.data);
         if (res.data) {
           toast.success("Loggedin Successfully");
+          //jab hm login ho jaye to is model ko close kar do
           document.getElementById("my_modal_3").close();
           setTimeout(() => {
             window.location.reload();
@@ -35,6 +37,7 @@ function Login() {
           setTimeout(() => {}, 2000);
         }
       });
+      //frontend se backend ko jodna -> end
   };
   return (
     <div>
