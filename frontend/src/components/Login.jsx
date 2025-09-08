@@ -40,8 +40,8 @@ function Login() {
   };
   return (
     <div>
-      <dialog id="my_modal_3" className="modal">
-        <div className="modal-box">
+      <dialog id="my_modal_3" className="modal ">
+        <div className="modal-box bg-gray-100 dark:bg-gray-800 text-black dark:text-white">
           <form onSubmit={handleSubmit(onSubmit)} method="dialog">
             {/* if there is a button in form, it will close the modal */}
             <Link
