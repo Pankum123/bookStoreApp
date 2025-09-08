@@ -68,9 +68,7 @@ const Freebook = () => {
         <div>
           <h1 className="font-semibold text-xl pb-2">Free offered Courses</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio sit
-            molestias odit perferendis minima. Quaerat doloremque quasi
-            perspiciatis voluptatum odit!
+            Discover a wide range of books available absolutely free. Learn, explore, and grow without spending a penny, with hand-picked titles that make your reading journey exciting — knowledge, fun, and creativity, all free just for you!
           </p>
         </div>
 
