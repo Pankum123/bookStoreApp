@@ -10,7 +10,12 @@ import useRoute from "./route/user.route.js"
 
 const app = express();
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: "https://bookstoreapp-backend-pankaj.onrender.com", // Replace with your deployed frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true // if you are using cookies/auth headers
+}));
 app.use(express.json());
 
 dotenv.config();
