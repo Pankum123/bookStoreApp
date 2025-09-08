@@ -11,11 +11,21 @@ import useRoute from "./route/user.route.js"
 const app = express();
 app.use(express.json());
 
+const allowedOrigins = [
+  "https://bookstoreapp-frontend-pankaj.onrender.com", // deployed frontend URL
+  "http://localhost:5173"   // local frontend for testing
+];
 // app.use(cors());
 app.use(cors({
-  origin: "https://bookstoreapp-frontend-pankaj.onrender.com", // Replace with your deployed frontend URL
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true // if you are using cookies/auth headers
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true); // Postman, curl requests
+    if (!allowedOrigins.includes(origin)) {
+      return callback(new Error("Not allowed by CORS"), false);
+    }
+    return callback(null, true);
+  },
+  methods: ["GET","POST","PUT","DELETE"],
+  credentials: true
 }));
 
 
