@@ -10,7 +10,7 @@ function Course() {
     const getBook = async () => {
       try {
         const res = await axios.get(`${import.meta.env.VITE_API_URL}/book`);
-        console.log(res.data);
+        console.log("Books from backend:", res.data);
         setBook(res.data);
       } catch (error) {
         console.log(error);
