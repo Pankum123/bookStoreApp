@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 const allowedOrigins = [
-  "https://bookstoreapp-frontend-pankaj.onrender.com", // deployed frontend URL
+  "https://bookstoreapp-rhh9.onrender.com", // deployed frontend URL
   "http://localhost:5173"   // local frontend for testing
 ];
 // app.use(cors());
